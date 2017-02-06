@@ -9,13 +9,15 @@ It was blatently copied from [this blogpost](https://aws.amazon.com/blogs/comput
 
 ```
 $ cd /dir/to/git/repo
-$ sbt
-> compile
+$ sbt assembly
+... info messages ...
+[info] Packaging /home/bweigel/dev/scalambda/target/scala-2.12/scala-lambda-assembly-1.0.jar ...
+[info] Done packaging.
 ```
 
-### 2. Upload jar to AWS Lambda
+### 2. Upload `target/scala-2.12/scala-lambda-assembly-1.0.jar` to AWS Lambda
 
 - Runtime: Java 8
-- Handler: `example.Main::getSourceBuckets`
+- Handler: `example.main::getSourceBuckets`
 
 ### 3. Test using _S3 put_ event
