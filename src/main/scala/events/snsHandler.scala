@@ -2,6 +2,7 @@ package events
 
 import com.amazonaws.services.lambda.runtime.events.SNSEvent
 
+import scala.collection.JavaConverters._
 
 /**
   * Created by bweigel on 2/6/17.
@@ -9,6 +10,7 @@ import com.amazonaws.services.lambda.runtime.events.SNSEvent
 object snsHandler {
   def handleEvent(event: SNSEvent): String = {
     println("Encountered SNSEvent!")
-    return "SNSEvent!"
+    println(event.getRecords.asScala.map(record => record.getSNS.getSubject))
+    return event.getRecords.asScala.map(record => record.getSNS.getSubject).toList.head
   }
 }

@@ -9,13 +9,10 @@ import scala.collection.JavaConverters._
   * Created by bweigel on 2/6/17.
   */
 
+
 object mockS3Event {
 
-  def mockS3Event(): S3Event = {
-    new S3Event(List(mockS3EventNotificationRecord()).asJava)
-  }
-
-  def mockS3EventNotificationRecord() = new S3EventNotificationRecord(
+  private val mockS3EventNotificationRecord = new S3EventNotificationRecord(
     "EU-central1",
     "ObjectCreated:Put",
     "aws:s3",
@@ -32,7 +29,7 @@ object mockS3Event {
       ),
       new S3ObjectEntity(
         "HappyFace.jpg",
-        12L,
+        1024L,
         "0123456789abcdef0123456789abcdef",
         "0A1B2C3D4E5F678901"
       ),
@@ -41,4 +38,9 @@ object mockS3Event {
     new UserIdentityEntity("EXAMPLE")
   )
 
+  private val mockS3Event = new S3Event(List(mockS3EventNotificationRecord).asJava)
+
+  def mock(): S3Event = {
+    mockS3Event
+  }
 }

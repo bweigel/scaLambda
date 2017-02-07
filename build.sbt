@@ -13,7 +13,6 @@ lazy val root = (project in file(".")).
       "com.amazonaws" % "aws-lambda-java-core" % "1.0.0",
       "com.amazonaws" % "aws-lambda-java-events" % "1.0.0",
       "org.mockito" % "mockito-core" % "2.7.4",
-      "com.typesafe.play" %% "play-json" % "2.5.0",
       "org.scalactic" %% "scalactic" % "3.0.1",
       "org.scalatest" %% "scalatest" % "3.0.1" % "test")
   )
